@@ -1,0 +1,225 @@
+@import 'variables', 'functions', 'reset';
+
+
+.main{
+    display: grid;
+    place-items: center;
+    place-content: center;
+    min-height: 100vh;
+    background-color: color(light-grayish-blue);
+    padding-inline: 1.9em;
+}
+
+.article{
+    display: grid;
+    overflow: hidden;
+    border-radius: 15px;
+    max-width: 500px;
+    background-color: white;
+    }
+
+.article__image{
+    max-height: 250px;
+    height: 60vw;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position:  center 20%;
+    }
+}
+
+
+.article__content{
+    position: relative;
+    padding: 1.8em 2.7em;
+    padding-bottom: 1.2em;
+    line-height: 1.6;
+
+    .title{
+        color: color(very-dark-grayish-blue);
+        font-weight: 700;
+        font-size: clamp(1.25rem, 4vw, 1.6rem);
+    }
+
+    .text{
+        color: color(desaturated-dark-blue);
+        font-weight: 500;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        margin-bottom: 3em;
+    }
+}
+
+.article__author{
+    display: flex;
+    align-items: center;
+
+    .author__avatar{
+        margin-right: 18px;
+        width: 35px;
+        height: 35px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .author__data{
+        .author__name{
+            margin-bottom: 2px;
+            color: color(very-dark-grayish-blue);
+            font-weight: 700;
+            font-size: $f-size-text;
+        }
+
+        .author__date{
+            color: color(grayish-blue);
+        }
+    }
+
+    .author__share{
+        display: block;
+        margin-left: auto;
+        background: color(light-grayish-blue);
+        padding: 6px 8px;
+        border-radius: 50%;
+        z-index: 100;
+
+    }
+}
+
+
+.article__social{
+    
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: color(very-dark-grayish-blue);
+    height: 75px;
+    padding: .1em 3em;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .2s, visibility .2s ease;
+
+    @media (max-width: 330px){
+        padding-inline: 2em;
+    }
+    
+    .social__icons{
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .social__share{
+        text-transform: uppercase;
+        letter-spacing: .5ch;
+        font-size: $f-size-text;
+        color: color(grayish-blue);
+        margin-right: 15px;
+    }
+}
+
+.icon{
+    margin-right: 10px;
+}
+
+.appear{
+    visibility: visible;
+    transform: scaleY(1);
+}
+
+.article__author{
+
+    .clicked{
+        background: color(desaturated-dark-blue);
+        svg path{
+            fill: white;
+        }
+    }
+
+}
+
+
+
+
+@media (min-width: 700px){
+
+    .main{
+        padding-inline: 4em;
+    }
+    .article{
+        max-width: 730px;
+        grid-template-columns: 1fr 1.5fr;
+        overflow: visible;
+    }
+
+    .article__image{
+        max-height: 100%;
+        height: auto;
+        img{  
+            object-position: left top;
+            border-radius: 15px 0 0 15px;
+        }
+        
+    }
+
+    .article__content{
+        padding: 1em 2.8em;
+        padding-bottom: 2em;
+      
+
+        .title{
+            line-height: 1.4;
+            margin-bottom: .5em;
+        }
+        .text{
+            font-size: 1rem;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    .article__author{
+
+        .author__avatar{
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .article__social{
+        width: 220px;
+        height: 50px;
+        bottom: 95px;
+        right: -55px;
+        left: auto;
+        z-index: 50;
+        border-radius: 10px;
+        padding-inline: 1.5em;
+
+        &::after{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: color(very-dark-grayish-blue);
+            clip-path: polygon(50% 50%, 0 0, 100% 0);
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .social__icons{
+            width: 100%;
+        }
+    }
+
+}
