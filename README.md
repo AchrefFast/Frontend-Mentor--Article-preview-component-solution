@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
--  [Solution URL](https://github.com/AchrefFast/Frontend-Mentor--Intro-component-with-sign-up-form-solution)
-- [Live Site URL](https://achreffast.github.io/Frontend-Mentor--Intro-component-with-sign-up-form-solution)
+-  [Solution URL](https://github.com/AchrefFast/Frontend-Mentor--Article-preview-component-solution)
+- [Live Site URL](https://achreffast.github.io/Frontend-Mentor--Article-preview-component-solution)
 
 ## My process
 
